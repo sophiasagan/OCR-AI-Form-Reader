@@ -136,6 +136,43 @@ npm run dev
 
 ---
 
+## Deployment
+
+The frontend and backend deploy independently.
+
+### Frontend → GitHub Pages
+
+1. In your repo go to **Settings → Pages** and set Source to **GitHub Actions**.
+2. Go to **Settings → Secrets and variables → Actions → Variables** and add:
+
+   | Variable | Value |
+   |---|---|
+   | `VITE_API_URL` | Your deployed backend URL, e.g. `https://cu-form-reader.up.railway.app` |
+   | `VITE_BASE_PATH` | `/your-repo-name/` (only needed for project pages, not a custom domain) |
+
+3. Push to `main` — the [deploy workflow](.github/workflows/deploy.yml) builds `frontend/dist` and publishes it automatically.
+
+### Backend → Railway (or any Python host)
+
+```bash
+# Railway CLI
+railway login
+railway init
+railway up
+```
+
+Set the `ANTHROPIC_API_KEY` environment variable in the Railway dashboard. Poppler is available on Railway's Linux environment via `apt`; add a `nixpacks.toml` if you need to pin it:
+
+```toml
+# nixpacks.toml
+[phases.setup]
+aptPkgs = ["poppler-utils"]
+```
+
+Make sure the backend has CORS configured for your GitHub Pages domain. The `allow_origins=["*"]` in `api/main.py` covers this for now — tighten it to your Pages URL before going to production.
+
+---
+
 ## API Reference
 
 ### `POST /extract`
