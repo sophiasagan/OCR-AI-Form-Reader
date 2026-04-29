@@ -20,13 +20,6 @@ AI-powered OCR for credit union forms. Upload a scanned PDF or image — Claude 
 [ demo.gif goes here ]
 ```
 
-Suggested flow to record:
-1. Drag a scanned loan application PDF onto the upload zone
-2. Watch the progress bar while Claude processes
-3. Show the extracted fields panel with section groupings and confidence badge
-4. Click an edit icon and correct a field inline
-5. Click "Export to CSV"
-
 ---
 
 ## Supported Form Types
