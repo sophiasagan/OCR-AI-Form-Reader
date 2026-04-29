@@ -1,6 +1,6 @@
-// In production (GitHub Pages) set VITE_API_URL to your deployed backend,
-// e.g. https://cu-form-reader.up.railway.app
-// In dev the Vite proxy rewrites these paths to localhost:8000.
+// On Vercel both frontend and backend share the same domain, so relative URLs
+// work without any env var. Set VITE_API_URL only if the backend is hosted
+// separately (e.g. Railway). Dev uses the Vite proxy to localhost:8000.
 const BASE = import.meta.env.VITE_API_URL ?? ''
 
 export async function extractForm(file, onProgress) {
