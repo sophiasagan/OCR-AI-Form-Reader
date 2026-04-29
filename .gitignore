@@ -1,11 +1,6 @@
 # Environment
 .env
 
-# Database
-*.db
-*.db-shm
-*.db-wal
-
 # Python
 __pycache__/
 *.py[cod]
@@ -14,15 +9,20 @@ __pycache__/
 venv/
 env/
 *.egg-info/
-dist/
 build/
+
+# Database
+*.db
+*.db-shm
+*.db-wal
 
 # Data — raw CSVs may contain PII; don't commit
 data/raw/
 data/processed/
 
-# Streamlit
-.streamlit/
+# Node
+node_modules/
+frontend/dist/
 
 # OS
 .DS_Store
