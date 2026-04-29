@@ -1,4 +1,3 @@
 {
-  "buildCommand": "cd frontend && npm install --include=dev && npm run build",
-  "outputDirectory": "frontend/dist"
+  "_comment": "Vercel Root Directory must be set to 'frontend' in project settings. This file is not read in that configuration."
 }
