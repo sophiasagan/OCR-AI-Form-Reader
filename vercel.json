@@ -1,19 +1,5 @@
 {
-  "builds": [
-    {
-      "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "dist" }
-    },
-    {
-      "src": "api/main.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    { "src": "/extract",    "dest": "api/main.py" },
-    { "src": "/form-types", "dest": "api/main.py" },
-    { "src": "/health",     "dest": "api/main.py" },
-    { "src": "/(.*)",       "dest": "/$1" }
-  ]
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/dist",
+  "framework": null
 }
